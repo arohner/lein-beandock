@@ -20,7 +20,7 @@ Beandock uploads a (potentially) updated Dockerrun.aws.json, and creates & sets 
 
 - Put `[lein-beandock "0.1.0"]` into the `:plugins` vector of your project.clj.
 - add `:docker {:repo "foo/bar"}` to your project.clj. (Same config used with [lein-docker] (https://github.com/arohner/lein-docker)
-- lein-beandock is based on lein-beanstalk (https://github.com/weavejester/lein-beanstalk), so all of the credentials, configuration, etc carry over.
+- lein-beandock is based on [lein-beanstalk] (https://github.com/weavejester/lein-beanstalk), so all of the credentials, configuration, etc carry over.
 - Add a Dockerrun.aws.json file to the root of your project directory. If the Image Name string contains $VERSION, it will be replaced when uploading.
 
     $ lein beandock deploy [version]
