@@ -1,6 +1,5 @@
 (ns leiningen.beandock
   (:require [clojure.java.io :as io]
-            [clojure.edn :as edn]
             [clojure.string :as str]
             [cheshire.core :as json]
             [leiningen.beanstalk.aws :as aws]
@@ -19,8 +18,8 @@
 
 (defn maybe-replace-version [dockerrun version]
   (-> dockerrun
-      (update-in [:Image :Name] (fn [v]
-                                  (str/replace v ":$VERSION" (str ":" version))))))
+      (update-in ["Image" "Name"] (fn [v]
+                                    (str/replace v ":$VERSION" (str ":" version))))))
 
 (defn transform-dockerrun [dockerrun version] 
   (-> dockerrun
@@ -28,7 +27,7 @@
       (->json)))
 
 (defn load-dockerrun [project]
-  (edn/read-string (slurp (io/file (-> project :root) "Dockerrun.aws.edn"))))
+  (json/parse-stream (io/reader (io/file (-> project :root) "Dockerrun.aws.json"))))
 
 (defn dockerrun-key-name [version]
   (format "Dockerrun-%s.aws.json" version))
