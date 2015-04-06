@@ -41,19 +41,8 @@
       (.putObject bucket (dockerrun-key-name version) (ByteArrayInputStream. (.getBytes dockerrun)) (ObjectMetadata.)))
     (println "Uploaded" (dockerrun-key-name version) "to S3 Bucket" bucket)))
 
-(def time-pattern "YYYYMMdd-kkmmss")
-(defn time-string []
-  (->
-   (SimpleDateFormat. time-pattern)
-   (.format (Date.))))
-
-(defn replace-snapshot
-  "Replace a SNAPSHOT in version string with current date-time"
-  [vs]
-  (str/replace vs "SNAPSHOT" (time-string)))
-
 (defn app-version [project]
-  (-> project :version (replace-snapshot)))
+  (-> project :version (docker/replace-snapshot)))
 
 (defn create-app-version
   [project version dockerrun-key]
