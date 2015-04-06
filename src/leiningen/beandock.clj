@@ -84,8 +84,5 @@
   {:help-arglists '([deploy])
    :subtasks [#'deploy]}
   [project subtask & args]
-  
-  
-  
-  
-  )
+  (condp = subtask
+    "deploy" (deploy project args)))
