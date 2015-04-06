@@ -6,7 +6,7 @@
   :dependencies [[com.amazonaws/aws-java-sdk "1.3.31"]
                  [cheshire "5.4.0"]
                  [lein-beanstalk "0.2.7"]
-                 [lein-docker "0.1.0-SNAPSHOT"]
+                 [arohner/lein-docker "0.1.0"]
                  [amazonica "0.3.19"]
                  [org.clojure/tools.reader "0.8.16"]]
   :eval-in-leiningen true)
