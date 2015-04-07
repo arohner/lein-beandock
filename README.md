@@ -21,12 +21,12 @@ Beandock uploads a (potentially) updated Dockerrun.aws.json, and creates & sets 
 ## Usage
 
 - add `:docker {:repo "foo/bar"}` to your project.clj. (Same config used with [lein-docker] (https://github.com/arohner/lein-docker)
-- Add :aws :beanstalk config. Beandock is based on lein-beandock is based on [lein-beanstalk] (https://github.com/weavejester/lein-beanstalk), so all of the credentials, configuration, etc carry over. At a minimum, you'll need an environment, and access keys specified. 
-- Add a Dockerrun.aws.json file to the root of your project directory. If the Image Name string contains $VERSION, it will be replaced when uploading.
+- Add `:aws :beanstalk` to your project.clj. Beandock is based on [lein-beanstalk] (https://github.com/weavejester/lein-beanstalk), so all of the credentials, configuration, etc carry over. At a minimum, you'll need an environment, and access keys specified. 
+- Add a Dockerrun.aws.json file to the root of your project directory. 
 
     $ lein beandock deploy env [version]
 
-Env is the name of an environment specified in :aws :beanstalk in your project. Version is a tag on the docker repo. If not specified, defaults to the latest tag of the project's docker repo, on the local machine.
+Env is the name of an environment specified in :aws :beanstalk in your project. Version is a tag on the docker repo. If not specified, defaults to the latest tag of the project's docker repo, on the local machine. If the ["Image" "Name"] string in Dockerrun.aws.json contains $VERSION, i.e "foo/bar:$VERSION", it will be replaced with the image's tag when uploading.
 
 ## License
 
