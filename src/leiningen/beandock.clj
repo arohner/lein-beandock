@@ -33,7 +33,6 @@
   (format "Dockerrun-%s.aws.json" version))
 
 (defn s3-upload-file [project dockerrun version]
-  (inspect dockerrun)
   (let [bucket  (aws/s3-bucket-name project)]
     (doto (AmazonS3Client. (aws/credentials project))
       (.setEndpoint (aws/project-endpoint project aws/s3-endpoints))
@@ -57,12 +56,11 @@
   (println "Created new app version" version))
 
 (defn set-app-version [project env version]
-  (println "set-app-version:" version)
   (assert env)
   (.updateEnvironment
    (#'aws/beanstalk-client project)
    (doto (UpdateEnvironmentRequest.)
-     (.setEnvironmentId (inspect (.getEnvironmentId env)))
+     (.setEnvironmentId (.getEnvironmentId env))
      (.setEnvironmentName (.getEnvironmentName env))
      (.setVersionLabel version))))
 
