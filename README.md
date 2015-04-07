@@ -28,6 +28,10 @@ Beandock uploads a (potentially) updated Dockerrun.aws.json, and creates & sets 
 
 Env is the name of an environment specified in :aws :beanstalk in your project. Version is a tag on the docker repo. If not specified, defaults to the latest tag of the project's docker repo, on the local machine. If the ["Image" "Name"] string in Dockerrun.aws.json contains $VERSION, i.e "foo/bar:$VERSION", it will be replaced with the image's tag when uploading.
 
+## Limitations
+
+Unlike lein-beanstalk, beandock will not create new EB environments (yet).
+
 ## License
 
 Copyright © 2015 Allen Rohner
