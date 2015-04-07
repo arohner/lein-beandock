@@ -1,4 +1,4 @@
-(defproject lein-beandock "0.1.1"
+(defproject lein-beandock "0.1.2"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
