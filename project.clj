@@ -1,4 +1,4 @@
-(defproject lein-beandock "0.1.2"
+(defproject lein-beandock "0.1.3-SNAPSHOT"
   :description "Tools for deploying docker containers to AWS ElasticBeandock"
   :url "https://github.com/arohner/lein-beandock"
   :license {:name "Eclipse Public License"
