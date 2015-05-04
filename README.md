@@ -8,7 +8,7 @@ Beandock is designed for the situation where you're using AWS ElasticBeanstalk w
 
 ## How it Works
 
-Beandock uploads a (potentially) updated Dockerrun.aws.json, and creates & sets a new EB version. 
+Beandock uploads a (potentially) updated Dockerrun.aws.json, and creates & sets a new EB version.
 
 ## Assumptions
 
@@ -21,8 +21,8 @@ Beandock uploads a (potentially) updated Dockerrun.aws.json, and creates & sets 
 ## Usage
 
 - add `:docker {:repo "foo/bar"}` to your project.clj. (Same config used with [lein-docker] (https://github.com/arohner/lein-docker)
-- Add `:aws :beanstalk` to your project.clj. Beandock is based on [lein-beanstalk] (https://github.com/weavejester/lein-beanstalk), so all of the credentials, configuration, etc carry over. At a minimum, you'll need an environment, and access keys specified. 
-- Add a Dockerrun.aws.json file to the root of your project directory. 
+- Add `:aws :beanstalk` to your project.clj. Beandock is based on [lein-beanstalk] (https://github.com/weavejester/lein-beanstalk), so all of the credentials, configuration, etc carry over. At a minimum, you'll need an environment, and access keys specified.
+- Add a Dockerrun.aws.json file to the root of your project directory.
 
     $ lein beandock deploy env [version]
 
@@ -31,6 +31,10 @@ Env is the name of an environment specified in :aws :beanstalk in your project. 
 ## Limitations
 
 Unlike lein-beanstalk, beandock will not create new EB environments (yet).
+
+## Changelog
+
+- 0.1.3 - beandock now also supports Dockerrun v2
 
 ## License
 
